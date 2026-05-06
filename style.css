@@ -1,0 +1,239 @@
+:root {
+    --primary-pink: #f8d7da;
+    --dark-green: #1a2e26;
+    --gold: #d4af37;
+    --white: #ffffff;
+    --text-dark: #333333;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: #fffafb;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Playfair Display', serif;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+header {
+    background: var(--white);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-green);
+}
+
+.logo span { color: var(--gold); }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-green);
+    font-weight: 500;
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(26, 46, 38, 0.7), rgba(26, 46, 38, 0.7)), 
+                url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=1200');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero h1 span { color: var(--gold); }
+
+.btn-primary {
+    background: var(--gold);
+    color: var(--white);
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background: #b8962e;
+    transform: translateY(-3px);
+}
+
+/* Services */
+.section-title {
+    text-align: center;
+    margin: 80px 0 50px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.service-card:hover { transform: translateY(-10px); }
+
+.service-img {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.service-info { padding: 25px; }
+
+.price {
+    display: block;
+    margin-top: 15px;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.gallery-item:hover { opacity: 0.8; }
+
+/* Accordion */
+.accordion-item {
+    border-bottom: 1px solid #eee;
+}
+
+.accordion-header {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 20px;
+}
+
+/* Contact Form */
+.contact-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--dark-green);
+    color: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.contact-info, #booking-form { padding: 50px; }
+
+#booking-form input, #booking-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2.5rem; }
+    .contact-card { grid-template-columns: 1fr; }
+    .hamburger { display: block; cursor: pointer; }
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--dark-green);
+        margin: 5px 0;
+    }
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content { max-width: 80%; max-height: 80%; }
+
+.close {
+    position: absolute;
+    top: 20px; right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    cursor: pointer;
+}
